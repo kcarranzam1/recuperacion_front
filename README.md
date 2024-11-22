@@ -3,7 +3,7 @@
 
 ## Estructura de la base de datos
 
-´´´ 
+```
 CREATE TABLE Kv_TiposEvento (
     idTipoEvento INT PRIMARY KEY IDENTITY(1,1),
     nombre VARCHAR(50) NOT NULL,
@@ -47,4 +47,5 @@ VALUES
     ('Asistente', 'Persona que asiste al evento'),
     ('Ponente', 'Persona que presenta en el evento'),
     ('Organizador', 'Persona encargada de organizar el evento');
-    ´´´
+
+```
