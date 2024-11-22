@@ -108,7 +108,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      baseUrl: "http://localhost:3009", // Definir URL base
+      baseUrl: "https://recuperacion-back.onrender.com", // Definir URL base
       tiposEvento: [],
       eventos: [],
       asistentes: [],
