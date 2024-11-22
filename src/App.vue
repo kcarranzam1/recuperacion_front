@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="container">
-      <h1 class="title">Eventos Corporativos</h1>
+      <h1 class="title">Eventos Para negros</h1>
 
       <!-- Sección Tipos de Evento -->
       <section class="card card-section">
