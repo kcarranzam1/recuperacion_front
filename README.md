@@ -49,3 +49,62 @@ VALUES
     ('Organizador', 'Persona encargada de organizar el evento');
 
 ```
+
+## Descripción General
+Esta aplicación permite gestionar eventos corporativos, asignar roles a asistentes y categorizar los eventos según tipos. El proyecto incluye funcionalidades para crear, editar y eliminar eventos, asistentes, tipos de eventos y roles.
+
+---
+
+## Estructura de la Base de Datos
+
+La base de datos está diseñada en *SQL Server* con las siguientes tablas:
+
+### 1. tipos_eventos
+- id: Identificador único (PK).
+- descripcion: Texto que describe el tipo de evento (e.g., conferencia, seminario).
+
+### 2. roles_data
+- id: Identificador único (PK).
+- descripcion: Descripción del rol asignado (e.g., moderador, coordinador).
+
+### 3. eventos
+- id: Identificador único (PK).
+- nombre: Nombre del evento.
+- fecha: Fecha del evento.
+- tipo_evento_id: Relación con el tipo de evento (FK).
+
+### 4. asistentes
+- id: Identificador único (PK).
+- evento_id: Relación con el evento asociado (FK).
+- nombre: Nombre del asistente.
+- rol_id: Relación con el rol asignado al asistente (FK).
+
+Las relaciones son las siguientes:
+- Cada *evento* pertenece a un *tipo de evento*.
+- Cada *asistente* está asociado a un *evento* y tiene un *rol* asignado.
+
+---
+
+## Arquitectura de la Aplicación
+
+### Frontend
+- *Framework:* Vue.js
+- *Estructura:* Toda la lógica del frontend está desarrollada en el archivo principal App.vue.
+- *Librerías usadas:* Axios para solicitudes HTTP.
+- *Funcionalidades principales:*
+  - Gestión de eventos: Crear, editar y eliminar eventos.
+  - Gestión de asistentes: Agregar asistentes a eventos, asignarles roles y eliminarlos.
+  - Gestión de tipos de eventos y roles: CRUD básico.
+
+### Backend
+- *Framework:* Express.js
+- *Conexión con la base de datos:* SQL Server mediante el paquete mssql.
+- *Endpoints RESTful:*
+  - CRUD para eventos, asistentes, roles y tipos de eventos.
+  - Validaciones básicas y manejo de errores.
+  - Uso de relaciones para evitar eliminaciones conflictivas (e.g., no eliminar roles usados por asistentes).
+
+### Base de Datos
+- *Gestor:* SQL Server.
+- *Conexión al backend:* Configurada mediante el paquete mssql en Node.js.
+- *Modelo relacional:* Se aplican restricciones de integridad referencial con claves foráneas.
